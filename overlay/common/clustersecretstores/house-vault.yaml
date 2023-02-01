@@ -1,0 +1,20 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: house-vault
+spec:
+  provider:
+    vault:
+      server: "https://vault.services.house"
+      path: "house"
+      version: "v2"
+      caProvider:
+        type: ConfigMap
+        namespace: config
+        name: house-root-ca
+        key: tls.crt
+      auth:
+        tokenSecretRef:
+          namespace: config
+          name: house-vault
+          key: token
