@@ -5,7 +5,7 @@ metadata:
 spec:
   provider:
     vault:
-      server: "https://vault.services.house"
+      server: "https://vault.keg.house"
       path: "house"
       version: "v2"
       caProvider:
